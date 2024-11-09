@@ -1,0 +1,28 @@
+使用者驗證 API
+	1.	註冊 - 使用手機號碼註冊帳號。
+	•	Endpoint: POST /api/users/register
+	•	Request: 帶有手機號碼、密碼等使用者資料。
+	2.	登入 - 使用手機號碼進行登入並建立 Session。
+	•	Endpoint: POST /api/users/login
+	•	Request: 帶有手機號碼與密碼。
+
+發文 API
+	1.	新增發文 - 僅限已登入的使用者發佈文章。
+	•	Endpoint: POST /api/posts/create
+	•	Request: 發文內容、圖片 URL（可選）。
+	2.	查詢所有發文 - 顯示平台上所有發文。
+	•	Endpoint: GET /api/posts/getAll
+	3.	編輯發文 - 僅限原作者可編輯其發文內容。
+	•	Endpoint: PUT /api/posts/{postId}
+	•	Request: 新的發文內容。
+	4.	刪除發文 - 僅限原作者可刪除其發文。
+	•	Endpoint: DELETE /api/posts/{postId}
+
+留言 API
+	1.	新增留言 - 僅限已登入的使用者針對發文新增留言。
+	•	Endpoint: POST /api/comments
+	•	Request: 留言內容、對應的發文 ID。
+	2.	查詢特定發文的留言 - 查詢指定發文的所有留言。
+	•	Endpoint: GET /api/comments/post/{postId}
+	3.	刪除留言 - 透過 postId 刪除相關留言（或擴展為個別留言刪除）。
+	•	Endpoint: DELETE /api/comments/post/{postId}
